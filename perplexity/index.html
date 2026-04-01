@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <!-- Code Highlighting Theme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <button class="icon-btn" aria-label="Toggle Sidebar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+                <div class="spacer"></div>
+                <button class="icon-btn start-chat-btn" aria-label="New Chat">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"></path></svg>
+                </button>
+                <button class="icon-btn search-btn" aria-label="Search Chats">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+                </button>
+                <div class="icon-btn history-btn" aria-label="History">
+                    <!-- Layer icon representation -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                </div>
+            </div>
+            
+            <div class="sidebar-bottom">
+                 <button class="profile-btn" aria-label="Profile">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="top-plan-badge">
+                <span class="plan-text">Free plan · <a href="#" class="upgrade-link">Upgrade</a></span>
+            </div>
+
+            <div class="center-content">
+                <header class="greeting-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#d1a384" class="sparkle-icon">
+                        <path d="M12 2L13.5 9.5L22 12L13.5 14.5L12 22L10.5 14.5L2 12L10.5 9.5L12 2Z"/>
+                    </svg>
+                    <h1>Back at it, Claude</h1>
+                </header>
+
+                <div class="input-container">
+                    <div class="input-area">
+                        <textarea placeholder="How can I help you today?" rows="1"></textarea>
+                        <div class="input-controls">
+                             <button class="icon-btn attach-btn" aria-label="Attach File">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"></path></svg>
+                            </button>
+                            <input type="file" id="file-upload" accept=".pdf" style="display: none;">
+                            <span id="file-name-display" class="file-name-pill" style="display: none;"></span>
+                            <div class="right-controls">
+                                <select class="voice-select-btn" aria-label="Select Voice">
+                                    <option value="" disabled selected>Loading voices...</option>
+                                </select>
+                                <button class="model-select-btn">
+                                    Sonnet 4.6
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+                                </button>
+                                <button class="icon-btn voice-btn" aria-label="Voice Input">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tools-connection">
+                    <span class="tools-text">Connect your tools to Claude</span>
+                    <div class="tool-icons">
+                        <div class="tool-icon" style="background-color: #fff; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><text y=%2212%22 x=%223%22 font-size=%2210%22>S</text></svg>');"></div>
+                        <div class="tool-icon" style="background-color: #4285F4; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><text y=%2212%22 x=%223%22 font-size=%2210%22 fill=%22white%22>G</text></svg>');"></div>
+                        <div class="tool-icon" style="background-color: #0F9D58; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><text y=%2212%22 x=%223%22 font-size=%2210%22 fill=%22white%22>D</text></svg>');"></div>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left: 8px; color: #8e8e93;"><path d="M9 18l6-6-6-6"></path></svg>
+                    </div>
+                </div>
+
+                <div class="onboarding-section">
+                    <p class="onboarding-title">Get set up with Claude <span class="completion-status">0 of 3 completed</span></p>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <label class="custom-checkbox">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                            <span class="task-text">Hand off tasks so you can focus on other work</span>
+                        </li>
+                        <li class="task-item">
+                            <label class="custom-checkbox">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                            <span class="task-text">Get better answers by connecting Slack, Drive, and your tools</span>
+                        </li>
+                        <li class="task-item">
+                            <label class="custom-checkbox">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                            <span class="task-text">Bring your history over from another AI</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- Markdown and Code Highlighting Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
